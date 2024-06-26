@@ -3,9 +3,9 @@ import { connectToDB } from "@/lib/mongoose";
 import { generateEmailBody, sendEmail } from "@/lib/nodemailer";
 import { scrapeAmazonProduct } from "@/lib/scraper";
 import { getAveragePrice, getEmailNotifType, getHighestPrice, getLowestPrice } from "@/lib/utils";
-import { NextApiRequest, NextApiResponse } from "next";
+import { NextRequest, NextResponse } from "next";
 
-export async function GET(req: NextApiRequest, res: NextApiResponse) {
+export async function GET(req: NextRequest, res: NextResponse) {
   try {
     connectToDB();
     const products = await Product.find({});
@@ -27,12 +27,12 @@ export async function GET(req: NextApiRequest, res: NextApiResponse) {
         }
 
         const updatedPriceHistory = [
-          ...currentProduct.priceHistory,
+         ...currentProduct.priceHistory,
           { price: scrapedProduct.priceHistory },
         ];
 
         const product = {
-          ...scrapedProduct,
+         ...scrapedProduct,
           priceHistory: updatedPriceHistory,
           lowestPrice: getLowestPrice(updatedPriceHistory),
           highestPrice: getHighestPrice(updatedPriceHistory),

@@ -49,37 +49,34 @@ const ProductDescription = async ({ params: { id } }: Props ) => {
               </Link>
             </div>
             <div className='flex items-center gap-3'>
-              <div className='product-hearts'>
-                <Image
-                  src='/assets/icons/red-heart.svg'
-                  alt='heart'
-                  width={20}
-                  height={20}
-                />
-
-                <p className="text-base font-semibold text-pink-300">
-                  = Coffee!
-                </p>
+              <Link href="https://corridorseven.coffee/" target="_blank">
+                <div className='product-hearts'>
+                    <Image
+                      src='/assets/icons/red-heart.svg'
+                      alt='heart'
+                      width={20}
+                      height={20}
+                    />
+                  <p className="text-base font-semibold text-pink-500">
+                      Best Coffee!
+                  </p>
               </div>
+              </Link>
 
-              <div className="p-2 bg-white-200 rounded-10">
-                <Link href="https://github.com/janav-007">
+              <div className="p-2 bg-purple-800 rounded-10">
+                <Link href="https://github.com/janav-cloud/amaz-deals" target="_blank">
                   <Image 
-                      src="/assets/icons/star.svg"
+                      src="/assets/icons/github.svg"
                       alt="star"
                       width={20}
                       height={20}
                   />
                 </Link>
 
-                <p className="text-base font-semibold text-secondary opacity-70">
-                  Star on Github!
-                </p>
-
                 </div>
 
-                <div className="p-2 bg-white-200 rounded-10">
-                <Link href="https://linktr.ee/janavdua7">
+                <div className="p-2 bg-green-500 rounded-10">
+                <Link href="https://linktr.ee/janavdua7" target="_blank">
                 <Image 
                     src="/assets/icons/share.svg"
                     alt="share"
@@ -87,10 +84,6 @@ const ProductDescription = async ({ params: { id } }: Props ) => {
                     height={20}
                   />
                 </Link>
-
-                <p className="text-base font-semibold text-secondary opacity-70">
-                  Get to know me :)
-                </p>
                 </div>
             </div>
           </div>

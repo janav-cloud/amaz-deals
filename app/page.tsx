@@ -29,7 +29,7 @@ const Home = async () => {
             </h1>
 
             <p className="mt-6">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat, quidem.
+              Track your favourite Products from Amazon A-Z!
             </p>
 
             <Searchbar />

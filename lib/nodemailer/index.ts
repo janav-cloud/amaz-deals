@@ -2,6 +2,7 @@
 
 import { EmailContent, EmailProductInfo, NotificationType } from "@/types"
 import nodemailer from 'nodemailer';
+import { resolve } from "path";
 
 const Notification = {
     WELCOME: 'WELCOME',
@@ -81,12 +82,14 @@ export const sendEmail = async(emailContent: EmailContent, sendTo: string[]) => 
         subject: emailContent.subject,
     }
 
-    transporter.sendMail(mailOptions, (error: any, info: any) => {
-        if(error) {
-            console.log(error);
-            return null;
-        }
-
-        console.log('Email sent: ', info);
-    })
+    await new Promise((resolve, reject) => {
+        transporter.sendMail(mailOptions, (error: any, info: any) => {
+            if(error) {
+                console.log(error);
+                return;
+            }
+    
+            console.log('Email sent: ', info);
+        });
+    });
 }

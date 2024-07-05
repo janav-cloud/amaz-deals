@@ -82,14 +82,12 @@ export const sendEmail = async(emailContent: EmailContent, sendTo: string[]) => 
         subject: emailContent.subject,
     }
 
-    await new Promise((resolve, reject) => {
-        transporter.sendMail(mailOptions, (error: any, info: any) => {
-            if(error) {
-                console.log(error);
-                return;
-            }
-    
-            console.log('Email sent: ', info);
-        });
+    transporter.sendMail(mailOptions, (error: any, info: any) => {
+        if(error) {
+            console.log(error);
+            return;
+        }
+
+        console.log('Email sent: ', info);
     });
 }
